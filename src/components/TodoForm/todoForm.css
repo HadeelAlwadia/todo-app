@@ -1,0 +1,23 @@
+.todoForm{
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    height: 15%;
+    justify-content: space-between;
+    padding: 12px 13px ;
+}
+.data-info{
+    margin-top: 30px;
+}
+.todo-entered{
+    padding: 12px 15px;
+    border: 1px solid #00FF9C;
+}
+.add-todo-btn{
+    border-radius: 5px;
+    padding: 13px 15px;
+    color: white;
+    background-color:#00FF9C;
+    border:none;
+
+}

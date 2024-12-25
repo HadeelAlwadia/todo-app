@@ -1,0 +1,11 @@
+.TodoItem{
+    border-radius: 15px;
+    background-color: rgb(250, 246, 246);
+    ;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    height: 70PX;
+    padding: 12PX 13PX;
+}
