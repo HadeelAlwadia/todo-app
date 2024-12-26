@@ -9,3 +9,7 @@
     height: 70PX;
     padding: 12PX 13PX;
 }
+input:checked{
+    border-radius: 50%;
+background-color: aquamarine;
+}

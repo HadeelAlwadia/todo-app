@@ -5,45 +5,59 @@ import AllTodos, { ItodoItem } from './components/AllTodos'
 import TodoForm from './components/TodoForm'
 import TodoData from './components/TodoData'
 
-function App() {
-  const [allTasks, setAllTasks] = useState<ItodoItem[]>([{
-    id:`0`, name: 'doning todo task', isCompleted: true }, {
-      name: 'makeing a shawer', isCompleted: false,
-      id: '1'
-    }]) 
+const todoItems=[{
+  id:`0`, name: 'doning todo task', isCompleted: true }, {
+    name: 'makeing a shawer', isCompleted: false,
+    id: '1'
+  }]
 
+// Get the current date
+let currentDate = new Date();
+currentDate.getDay()
+// Format the date to show day of the week, month, and day of the month
+let formattedDate = currentDate.toLocaleDateString('en-US', {
+  weekday: 'long',  // Full weekday name (e.g., "Monday")
+  month: 'long',    // Full month name (e.g., "December")
+  day: 'numeric'    // Day of the month (e.g., "26")
+});
+
+
+
+
+function App() {
+  const [allTasks, setAllTasks] = useState<ItodoItem[]>(todoItems)
+  const numbersOfCompletedTasks=allTasks.filter(task=>task.isCompleted===true).length;
 
   const handleDeleteTask = (id:string) => {
-     const todosTasksAfterDelet=allTasks.filter((todoItem:any)=>todoItem.id!==id)
-     setAllTasks([...todosTasksAfterDelet])
-
-
+     const todosTasksAfterDelete=allTasks.filter((todoItem:any)=>todoItem.id!==id)
+     setAllTasks([...todosTasksAfterDelete])
   }
 
 
-
-  const handleAddTask = (event:any, name :string) => {
-    event.preventDefault()
+  const handleAddTask = (name :string) => 
     setAllTasks([...allTasks,{
-      isCompleted: false, name,
+      isCompleted: false, 
+      name,
       id: `${Math.random()}`
     }])
-  }
+  
 
- 
 const handleUpdateOnTask = (id:string) => {
   const todoItemUpdate=allTasks.filter((todoItem:any)=>todoItem.id===id)[0]
-  const todoItemArray=allTasks.filter((todoItem:any)=>todoItem.id!==id)
-  setAllTasks([...todoItemArray,{...todoItemUpdate,isCompleted:!todoItemUpdate.isCompleted}])
+  const todoItemsAfterUpdate=allTasks.filter((todoItem:any)=>todoItem.id!==id)
+  setAllTasks([...todoItemsAfterUpdate,{...todoItemUpdate,isCompleted:!todoItemUpdate.isCompleted}])
 }
 
   return (
     <main className='box-shadow'>
+          <h1 className='data-info'>{'monday,11 Apr'}</h1>
+
       <TodoForm handleAddTask ={handleAddTask}/>
-      <TodoData numbersOfCreatedTask={allTasks.length}  numbersOfCompletedTask={allTasks.filter(task=>task.isCompleted===true).length} />
-      <AllTodos AllTodos={allTasks} handleDeleteTask={handleDeleteTask} handleUpdateOnTask={handleUpdateOnTask}/>
+      <TodoData numberOfCreatedTasks={allTasks.length}  numberOfCompletedTasks={numbersOfCompletedTasks}/>
+      <AllTodos AllTodosObject={allTasks} handleDeleteTask={handleDeleteTask} handleUpdateTask={handleUpdateOnTask}/>
     </main>
 
   )
 }
-export default App;0
+export default App;
+ 

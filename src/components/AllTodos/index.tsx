@@ -1,25 +1,27 @@
 import React from 'react'
 import './allTodos.css'
-
-
 import TodoItem from './TodoItem'
+
 export interface ItodoItem {
-  id:string,
+  id: string,
   name: string,
   isCompleted: boolean
 }
-const AllTodos = ({ AllTodos, handleDeleteTask ,handleUpdateOnTask}:
-   {
-   AllTodos: ItodoItem[], 
-   handleDeleteTask: (id:string) => void ,
-handleUpdateOnTask:(id:string)=>void}
-    ) => {
+interface IallTodos {
+  AllTodosObject: ItodoItem[]
+  , handleDeleteTask: (id: string) => void, 
+  handleUpdateTask: (id: string) => void
+}
+const AllTodos = ({ AllTodosObject, handleDeleteTask, handleUpdateTask }: IallTodos) => {
 
   return (
     <section className='all-todos-contineer'>
-      {AllTodos.map((todoItem: ItodoItem) => <TodoItem name={todoItem.name}
-      handleDeleteTask={handleDeleteTask}
-      isCompleted={todoItem.isCompleted} id={todoItem.id} handleUpdateOnTask={handleUpdateOnTask} />)}
+      {AllTodosObject.map((todoItem: ItodoItem) => <TodoItem
+         name={todoItem.name}
+         handleDeleteTask={handleDeleteTask}
+         isCompleted={todoItem.isCompleted}
+         id={todoItem.id}
+          handleUpdateOnTask={handleUpdateTask} />)}
     </section>
   )
 }

@@ -1,34 +1,44 @@
-import React, { FormEvent, useState } from 'react'
+import  {  FormEvent, useState } from 'react'
 import './TodoForm.css'
 
 
 interface ItodoForm {
-  handleAddTask: ({ name }: { name: string }) => void
+  handleAddTask: (name:string) => void
 }
 
-const TodoForm = ({handleAddTask}:{handleAddTask:any}) => {
-  
-const [nameTask,setNameTask]=useState('')
+const TodoForm = ({handleAddTask}:ItodoForm) => {
+const [haveError,setHaveError]=useState(false);
+const [nameTask,setNameTask]=useState('');
+
+
 const handleChaneNameTask=(newName:string)=>{
   setNameTask(newName)
+  setHaveError(false)
 }
+  const handleSubmitForm =(e: FormEvent<HTMLFormElement>)=>{
+  e.preventDefault();
+ nameTask?handleAddTask(nameTask):setHaveError(true)
+  setNameTask('')
+  }
+
 
   return (
-  <>
-    <h1 className='data-info'>monday,11 Apr</h1>
-    <form className='todoForm' onSubmit={(e)=>{
-
-      handleAddTask(e,nameTask)
-      setNameTask('')
-      }}>
-      <input  value={nameTask}className='todo-entered' placeholder='type todo here' onChange={(e)=>handleChaneNameTask(e.target.value)} />
+  
+    <form className='todoForm' onSubmit={(e)=>handleSubmitForm(e)}>      
+      <input 
+        value={nameTask}
+        className={`todo-entered ${haveError?'error-input':''}`}
+        placeholder='type todo here'
+        onChange={e=>
+         handleChaneNameTask(e.target.value)}
+           />
       <button className='add-todo-btn'>
         add task
       </button>
 
 
     </form>
-  </>
+  
   )
 }
 
