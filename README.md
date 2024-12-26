@@ -1,2 +1,3 @@
 #  Calculator App
-![todo logo](src/todo.png)
+![todo logo](src/assets/todo-log.png)
+
