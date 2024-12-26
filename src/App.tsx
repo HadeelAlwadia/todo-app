@@ -13,13 +13,7 @@ const todoItems=[{
 
 // Get the current date
 let currentDate = new Date();
-// Format the date to show day of the week, month, and day of the month
-let formattedDate = currentDate.toLocaleDateString('en-US', {
-  weekday: 'long',  // Full weekday name (e.g., "Monday")
-  month: 'long',    // Full month name (e.g., "December")
-  day: 'numeric'    // Day of the month (e.g., "26")
-});
-console.log(formattedDate)
+let formattedDate = currentDate.toLocaleDateString('en-US', {  weekday: 'long',    month: 'long',    day: 'numeric'})     
 const [day,month]=formattedDate.split(',')
 
 
