@@ -14,9 +14,9 @@ A simple and easy-to-use To-Do application built with HTML, CSS, and JavaScript.
 - Fully responsive design.
 
 ## Technologies Used:
-- **HTML** for structuring the content.
-- **CSS** for styling the app.
-- **JavaScript** for functionality (adding, editing, deleting tasks).
+- **React** .
+- **css** for styling the app.
+- **Typescript ** for functionality (adding, editing, deleting tasks).
 
 ## How to Use:
 1. **Clone this repository**:
