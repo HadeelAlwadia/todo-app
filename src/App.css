@@ -19,6 +19,9 @@ main{
 
 
   }
+  .month{
+    font-size: 22px;
+  }
   main >* {
     width: 95%;
     margin:10pX auto ;

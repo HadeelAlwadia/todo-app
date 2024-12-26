@@ -13,15 +13,14 @@ const todoItems=[{
 
 // Get the current date
 let currentDate = new Date();
-currentDate.getDay()
 // Format the date to show day of the week, month, and day of the month
 let formattedDate = currentDate.toLocaleDateString('en-US', {
   weekday: 'long',  // Full weekday name (e.g., "Monday")
   month: 'long',    // Full month name (e.g., "December")
   day: 'numeric'    // Day of the month (e.g., "26")
 });
-
-
+console.log(formattedDate)
+const [day,month]=formattedDate.split(',')
 
 
 function App() {
@@ -50,7 +49,7 @@ const handleUpdateOnTask = (id:string) => {
 
   return (
     <main className='box-shadow'>
-          <h1 className='data-info'>{'monday,11 Apr'}</h1>
+          <h1 className='data-info'>{day},<i className='month'>{month}</i></h1>
 
       <TodoForm handleAddTask ={handleAddTask}/>
       <TodoData numberOfCreatedTasks={allTasks.length}  numberOfCompletedTasks={numbersOfCompletedTasks}/>
