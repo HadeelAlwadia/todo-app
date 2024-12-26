@@ -30,6 +30,8 @@ main{
 input{
   outline: none;
 }
+
+
     /* Mobile screen (screens smaller than 768px) */
 @media (max-width: 768px) {
   main {

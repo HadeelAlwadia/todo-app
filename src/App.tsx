@@ -10,9 +10,8 @@ function App() {
     id:`0`, name: 'doning todo task', isCompleted: true }, {
       name: 'makeing a shawer', isCompleted: false,
       id: '1'
-    }])
+    }]) 
 
-   
 
   const handleDeleteTask = (id:string) => {
      const todosTasksAfterDelet=allTasks.filter((todoItem:any)=>todoItem.id!==id)
