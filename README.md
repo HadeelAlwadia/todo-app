@@ -21,4 +21,4 @@ A simple and easy-to-use To-Do application built with HTML, CSS, and JavaScript.
 ## How to Use:
 1. **Clone this repository**:
    ```bash
-   git clone https://github.com/your-username/todo-app.git
+   git clone https://github.com/HadeelAlwadia/todo-app.git
