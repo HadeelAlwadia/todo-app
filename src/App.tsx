@@ -49,7 +49,7 @@ const handleUpdateOnTask = (id:string) => {
 
   return (
     <main className='box-shadow'>
-          <h1 className='data-info'>{day},<i className='month'>{month}</i></h1>
+          <h1 className='data-info'>{day},<i className='month'>{month.slice(9,month.length)}{month.slice(0,4)}</i></h1>
 
       <TodoForm handleAddTask ={handleAddTask}/>
       <TodoData numberOfCreatedTasks={allTasks.length}  numberOfCompletedTasks={numbersOfCompletedTasks}/>
